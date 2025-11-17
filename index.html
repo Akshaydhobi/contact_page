@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Modern Design</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', Arial, Helvetica, sans-serif;
+      /* Subtle gradient background */
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Form Container */
+    .form-box {
+      background: #ffffff;
+      width: 420px;
+      border-radius: 16px;
+      /* Softer, more pronounced shadow */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.5s ease-out;
+      overflow: hidden; /* To contain header background */
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Form Header */
+    .form-header {
+      text-align: center;
+      padding: 25px 30px 20px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .form-header h2 {
+      font-size: 26px;
+      font-weight: 600;
+      color: #2c3e50; /* Dark blue-gray */
+    }
+
+    /* Form Body */
+    #contactForm {
+      padding: 30px;
+    }
+
+    /* Input Field Grouping (for Icons) */
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .input-group svg {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #aaa;
+      width: 20px;
+      height: 20px;
+      transition: color 0.3s;
+    }
+    
+    /* Adjust icon for textarea */
+    .input-group.textarea-group svg {
+      top: 18px;
+      transform: none;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px 15px 12px 50px; /* Left padding for icon */
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9f9;
+      transition: all 0.3s ease;
+      color: #333;
+    }
+    
+    textarea {
+      padding-top: 12px; /* Adjust padding for textarea */
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #aaa;
+    }
+
+    /* Focus State - The "Attractive" Part */
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #667eea; /* Vibrant border on focus */
+      background: #fff;
+      /* Subtle glow effect */
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+    }
+    
+    input:focus + svg, textarea:focus + svg {
+      color: #667eea; /* Change icon color on focus */
+    }
+
+    /* Button */
+    button {
+      width: 100%;
+      padding: 14px;
+      /* Modern gradient */
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      /* Button shadow */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      /* Reversed gradient and "lift" effect */
+      background: linear-gradient(135deg, #764ba2, #667eea);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    button:active {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Response Messages */
+    .message {
+      margin-top: 20px;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      display: none; /* Hidden by default */
+    }
+
+    .message.success {
+      background: #e6f7ec;
+      color: #27ae60;
+    }
+
+    .message.error {
+      background: #fdecea;
+      color: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-box">
+    <div class="form-header">
+      <h2>Contact Us</h2>
+    </div>
+    
+    <form id="contactForm">
+      <div class="input-group">
+        <input type="text" id="name" name="name" placeholder="Your Name" required />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A1.75 1.75 0 0117.25 22H6.75a1.75 1.75 0 01-1.749-1.882z" />
+        </svg>
+      </div>
+
+      <div class="input-group">
+        <input type="email" id="email" name="email" placeholder="Your Email" required />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91A2.25 2.25 0 012.25 6.993v-.243" />
+        </svg>
+      </div>
+
+      <div class="input-group textarea-group">
+        <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      
+      <button type="submit">Send Message</button>
+      
+      <p class="message" id="responseMessage"></p>
+    </form>
+  </div>
+
+  <script>
+    const scriptURL = "<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Modern Design</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', Arial, Helvetica, sans-serif;
+      /* Subtle gradient background */
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Form Container */
+    .form-box {
+      background: #ffffff;
+      width: 420px;
+      border-radius: 16px;
+      /* Softer, more pronounced shadow */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.5s ease-out;
+      overflow: hidden; /* To contain header background */
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Form Header */
+    .form-header {
+      text-align: center;
+      padding: 25px 30px 20px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .form-header h2 {
+      font-size: 26px;
+      font-weight: 600;
+      color: #2c3e50; /* Dark blue-gray */
+    }
+
+    /* Form Body */
+    #contactForm {
+      padding: 30px;
+    }
+
+    /* Input Field Grouping (for Icons) */
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .input-group svg {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #aaa;
+      width: 20px;
+      height: 20px;
+      transition: color 0.3s;
+    }
+    
+    /* Adjust icon for textarea */
+    .input-group.textarea-group svg {
+      top: 18px;
+      transform: none;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px 15px 12px 50px; /* Left padding for icon */
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9f9;
+      transition: all 0.3s ease;
+      color: #333;
+    }
+    
+    textarea {
+      padding-top: 12px; /* Adjust padding for textarea */
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #aaa;
+    }
+
+    /* Focus State - The "Attractive" Part */
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #667eea; /* Vibrant border on focus */
+      background: #fff;
+      /* Subtle glow effect */
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+    }
+    
+    input:focus + svg, textarea:focus + svg {
+      color: #667eea; /* Change icon color on focus */
+    }
+
+    /* Button */
+    button {
+      width: 100%;
+      padding: 14px;
+      /* Modern gradient */
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      /* Button shadow */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      /* Reversed gradient and "lift" effect */
+      background: linear-gradient(135deg, #764ba2, #667eea);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    button:active {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Response Messages */
+    .message {
+      margin-top: 20px;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      display: none; /* Hidden by default */
+    }
+
+    .message.success {
+      background: #e6f7ec;
+      color: #27ae60;
+    }
+
+    .message.error {
+      background: #fdecea;
+      color: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-box">
+    <div class="form-header">
+      <h2>Contact Us</h2>
+    </div>
+    
+    <form id="contactForm">
+      <div class="input-group">
+        <input type="text" id="name" name="name" placeholder="Your Name" required />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A1.75 1.75 0 0117.25 22H6.75a1.75 1.75 0 01-1.749-1.882z" />
+        </svg>
+      </div>
+
+      <div class="input-group">
+        <input type="email" id="email" name="email" placeholder="Your Email" required />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91A2.25 2.25 0 012.25 6.993v-.243" />
+        </svg>
+      </div>
+
+      <div class="input-group textarea-group">
+        <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      
+      <button type="submit">Send Message</button>
+      
+      <p class="message" id="responseMessage"></p>
+    </form>
+  </div>
+
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxnNEWjBeW9Ko-6nffIW-0WKT0vo0EyLcYlWUGJG6hlUroCQkK0STlly-uRWoCyh5CC/exec";
+    const form = document.getElementById("contactForm");
+    const responseMessage = document.getElementById("responseMessage");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+
+      fetch(scriptURL, {
+        method: "POST",
+        body: data
+      })
+      .then(response => response.text())
+      .then(result => {
+        responseMessage.innerText = "Message sent successfully!";
+        responseMessage.className = "message success"; // Use new success class
+        responseMessage.style.display = "block";
+        form.reset();
+      })
+      .catch(error => {
+        responseMessage.innerText = "Error sending message. Please try again.";
+        responseMessage.className = "message error"; // Use new error class
+        responseMessage.style.display = "block";
+      });
+    });
+  </script>
+
+</body>
+</html>";
+    const form = document.getElementById("contactForm");
+    const responseMessage = document.getElementById("responseMessage");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+
+      fetch(scriptURL, {
+        method: "POST",
+        body: data
+      })
+      .then(response => response.text())
+      .then(result => {
+        responseMessage.innerText = "Message sent successfully!";
+        responseMessage.className = "message success"; // Use new success class
+        responseMessage.style.display = "block";
+        form.reset();
+      })
+      .catch(error => {
+        responseMessage.innerText = "Error sending message. Please try again.";
+        responseMessage.className = "message error"; // Use new error class
+        responseMessage.style.display = "block";
+      });
+    });
+  </script>
+
+</body>
+</html>
